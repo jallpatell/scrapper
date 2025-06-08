@@ -7,7 +7,7 @@ const { google } = require('googleapis');
 
 // Configuration
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID; // Replace with your Google Sheet ID
-const CREDENTIALS_FILE = '/Users/jal/Desktop/YT-Scrape/stock-data-uploader-46b3e051d134.json'; // Path to service account JSON
+const CREDENTIALS_FILE = '/Users/jal/Desktop/YT-Scrape/stock-data-uploader-9f8c41edb5ce.json'; // Path to service account JSON
 const DATA_DIRECTORY = './scrapped_data'; // Directory where JSON files are stored
 
 // Initialize Google Sheets API
