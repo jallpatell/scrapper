@@ -6,7 +6,7 @@ const path = require('path');
 // Configuration
 const MAX_RETRIES = 3;
 const REQUEST_DELAY = 3000; // 3 seconds between requests
-const SCRAPE_TIMEOUT = 30000; // 30 seconds timeout per company
+const SCRAPE_TIMEOUT = 30000;
 const RESULTS_DIR = './scrapped_data';
 
 // Create directory if it doesn't exist
@@ -39,7 +39,7 @@ async function scrapeCompanyData(browser, company, retryCount = 0) {
             timeout: SCRAPE_TIMEOUT
         });
 
-        // Wait for key elements with multiple fallback options
+
         await waitForAnySelector(page, [
             '.pcnsb div.infoDisp',
             '.oview_table',
@@ -154,7 +154,7 @@ async function scrapeAllCompanies() {
     }
 }
 
-// Helper function to wait for any selector
+
 async function waitForAnySelector(page, selectors, options = {}) {
     const { timeout = 10000 } = options;
     
@@ -169,7 +169,7 @@ async function waitForAnySelector(page, selectors, options = {}) {
     throw new Error(`None of the selectors found: ${selectors.join(', ')}`);
 }
 
-// Run the scraper with enhanced error handling
+
 (async () => {
     try {
         const results = await scrapeAllCompanies();
@@ -181,7 +181,7 @@ async function waitForAnySelector(page, selectors, options = {}) {
         fs.writeFileSync(filename, csvContent);
         console.log(`Results saved to ${filename}`);
         
-        // Also save raw JSON for debugging
+
         fs.writeFileSync(path.join(RESULTS_DIR, `stock_data_${timestamp}.json`), JSON.stringify(results, null, 2));
         
     } catch (error) {
