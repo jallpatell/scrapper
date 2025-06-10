@@ -9,6 +9,20 @@
 | `SCRAPE_TIMEOUT` | Timeout for each page load               | 30000 ms (30s)  |
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 
 🧪 Usage: 
