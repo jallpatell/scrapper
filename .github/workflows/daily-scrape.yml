@@ -21,14 +21,19 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
+        cache: 'npm'
 
     - name: Install Puppeteer dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libgbm-dev wget
+        sudo apt-get install -y libgbm-dev wget xvfb
+
+    - name: Install npm dependencies
+      run: npm install puppeteer
     
-    - name: Run scraper
-      run: timeout 300 node main-scrap.js || exit 1
+    - name: Run scraper with xvfb
+      run: | 
+        xvfb-run --auto-servernum node main-scrap.js
       env:
         NODE_ENV: production
       timeout-minutes: 10 # Overall step timeout
