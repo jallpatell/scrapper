@@ -1,5 +1,5 @@
-📈 Stock Data Scraper
-A robust Node.js-based web scraping utility built using Puppeteer that collects financial and trading data for a list of companies from the web, and exports the results to both CSV and JSON formats.
+# 📈 Stock Data Scraper <br>
+### A robust Node.js-based web scraping utility built using Puppeteer that collects financial and trading data for a list of companies from the web, and exports the results to both CSV and JSON formats. <br>
 
 
 | Setting          | Description                              | Default         |
@@ -13,11 +13,12 @@ A robust Node.js-based web scraping utility built using Puppeteer that collects 
 
 🧪 Usage: 
 0. Install the dependencies:
-    ``` npm init -y
-        npm install ```
+    ``` npm init -y ```
+    <br>
+    ``` npm install ```
 
 
-1. Fetches compnay fetails from the list.js
+1. Fetches compnay fetails from the list.js <br>
 
 <pre><code>## 📄 Example: `list.js` ```js // list.js exports.companies = [ { name: "Tata Consultancy Services", symbol: "TCS", url: "https://www.moneycontrol.com/financials/tcs" }, { name: "Infosys", symbol: "INFY", url: "https://www.moneycontrol.com/financials/infosys" } ]; ``` </code></pre>
 
