@@ -21,27 +21,27 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Install Chrome for Puppeteer
+    - name: Install Puppeteer dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y chromium-browser
+        sudo apt-get install -y libgbm-dev wget
     
-    - name: Run scraping script
+    - name: Run scraper
+      run: timeout 300 node main-scrap.js || exit 1
       env:
-        # Add your environment variables here
-        YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-        # Add any other environment variables your script needs
+        NODE_ENV: production
+      timeout-minutes: 10 # Overall step timeout
+
+    - name: Run data uploader
+      run: node data-upload.js
+      env:
+        SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+        GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+
+    - name: Commit and push changes (if any)
       run: |
-        # Set Puppeteer to use the installed Chrome
-        export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-        node main-scrap.js
-    
-    - name: Commit and push if changes
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add scrapped_data/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update scraped data [skip ci]" && git push) 
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add .
+        git commit -m "Automated data update" || echo "No changes to commit"
+        git push
