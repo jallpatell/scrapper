@@ -4,8 +4,7 @@ on:
   schedule:
     # Runs at 00:00 UTC every day
     - cron: '12 3 * * *'
-    - cron: '0 11 * * *'
-    - cron: '30 15 * * *'
+    - cron: '7 22 * * *'
   # Allows manual triggering of the workflow
   workflow_dispatch:
 
