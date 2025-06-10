@@ -20,7 +20,4 @@ A robust Node.js-based web scraping utility built using Puppeteer that collects 
 
 
 2. Run the scraper:
-
-bash
-Copy
-Edit
+``` node main-scrapper.js  ```
