@@ -12,6 +12,11 @@ A robust Node.js-based web scraping utility built using Puppeteer that collects 
 
 
 🧪 Usage: 
+0. Install the dependencies:
+    ``` npm init -y
+        npm install ```
+
+
 1. Fetches compnay fetails from the list.js
 
 <pre><code>## 📄 Example: `list.js` ```js // list.js exports.companies = [ { name: "Tata Consultancy Services", symbol: "TCS", url: "https://www.moneycontrol.com/financials/tcs" }, { name: "Infosys", symbol: "INFY", url: "https://www.moneycontrol.com/financials/infosys" } ]; ``` </code></pre>
