@@ -3,6 +3,7 @@ name: Daily YouTube Scraping
 on:
   schedule:
     # Runs at 00:00 UTC every day
+    - cron: '12 3 * * *'
     - cron: '0 11 * * *'
     - cron: '30 15 * * *'
   # Allows manual triggering of the workflow
